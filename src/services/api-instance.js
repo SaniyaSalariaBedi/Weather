@@ -13,7 +13,7 @@ export const loginInstance = axios.create({
     baseURL: `${BASE_URL_LOGIN}/api/v1/token`,
     headers: {
         'Authorization': `Basic ${btoa(USERNAME + ':' + PASSWORD)}`,
-        "access-control-allow-origin": "*",
+        // "access-control-allow-origin": "*",
     }
 });
 
@@ -24,7 +24,7 @@ const BASE_URL_MAPS = 'https://nominatim.openstreetmap.org'
 export const mapsThirdPartyInstance = axios.create({
     baseURL: BASE_URL_MAPS,
     headers: {
-        "access-control-allow-origin": "*",
+        // "access-control-allow-origin": "*",
     }
 });
 
@@ -36,7 +36,7 @@ const axiosInstance = axios.create({
     baseURL: BASE_URL,
     headers: {
         'Authorization': `Bearer ${AUTH_TOKEN}`,
-        "access-control-allow-origin": "*",
+        // "access-control-allow-origin": "*",
     }
 });
 
