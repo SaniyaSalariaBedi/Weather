@@ -41,6 +41,7 @@ form{
 
 .icon-input ul{
   position: absolute;
+  z-index: 1000;
   top: 29px;
   left: 0;
   width: 300px;
@@ -206,5 +207,18 @@ button{
 }
 .chart-filters{
   flex-direction: column;
+}
+
+.container-checkbox{
+  font-size: 16px;
+  padding-left: 25px;
+}
+.container-checkbox .checkmark{
+  width:18px;
+  height: 18px;
+}
+.container-checkbox .checkmark:after {
+  left: 6px;
+  top: 1px;
 }
 }
