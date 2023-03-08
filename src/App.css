@@ -1,38 +1,210 @@
-.App {
+body{
+  background-color: #2f2f2f;
+  color: #BBBABC;
+  padding: 25px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+form{
+  text-align: left;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+  width:1140px;
+  margin: auto;
+  border-radius: 25px;
+  background-color: #101014;
+  box-sizing: border-box;
+  padding: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-filters{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+/* Search Bar icon */
+.icon-input {
+  color: #BBBABC;
+  border: 1px solid #1E1E1E;
+  position: relative;
+  width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #1E1E1E;
+  border-radius: 25px;
+  font-size: 13px;
   display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  position: relative;
+}
+
+.icon-input ul{
+  position: absolute;
+  top: 29px;
+  left: 0;
+  width: 300px;
+  box-sizing: border-box;
+  background-color: #1E1E1E;
+  list-style: none;
+  padding: 5px;
+  border-radius: 5px;
+
+}
+.icon-input ul li{
+  text-align: left;
+  display: flex;
+flex-direction: row;
+align-items: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.icon-input ul li img{
+  margin-right: 10px;
+  align-items: flex-start;
+}
+.icon-input label{
+  width: 100px;
+}
+ input[type="text"], input[type="date"] {
+  width: 100%;
+  color: #BBBABC;
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  
+}
+
+input::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+.icon-input__text-field:focus{
+  outline: 0;
+}
+/* .icon-input__icon {
+  color: #BBBABC;
+  position: absolute;
+  top: 50%;
+  right:10px;
+  transform: translateY(-50%);
+} */
+.icon-input__text-field:focus + .icon-input__icon {
+  color: #ff8400;
+}
+
+button{
+  border-radius: 25px;
+  padding: 10px;
+  background-color: #BBD8EC;
+  color: #000;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Checkbox style */
+.chart-filters{
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.chart-filters >div{
+  max-width: 800px !important;
+  width: 100%;
+  color: #BBD8EC;
+}
+
+.pink{
+  color: #FF6384;
+}
+.amber{
+  color: #E5B94D;
+}
+.accent{
+  color: #2C7DB5;
+}
+
+
+
+.container-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.container-checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-checkbox input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.container-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container-checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 575.98px){
+  .container {
+    width: 100%;
+    overflow: hidden;
+}
+.search-filters{
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.icon-input{
+  margin-bottom: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chart-filters{
+  flex-direction: column;
+}
 }

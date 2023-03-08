@@ -1,22 +1,25 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import WeatherApp from './components/Weather';
 import './App.css';
+import { loginInstance } from './services/api-instance';
+const App = () => {
 
-function App() {
+  // Runs once on mount
+  useEffect(() => {
+    login()
+  }, []);
+
+
+  // Function to authenticate user and store token in localStorage
+  const login = async () => {
+    const { data } = await loginInstance.get();
+    localStorage.setItem('authToken', data.access_token);
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Weather Dashboard</h1>
+        <WeatherApp />
       </header>
     </div>
   );

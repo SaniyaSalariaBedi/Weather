@@ -1,0 +1,21 @@
+import axios from "./api-instance";
+
+const CommonApiService = {
+
+    // Define a method called get that takes an apiUrl as parameter
+    get: async (apiUrl) => {
+        return await axios.get(apiUrl);
+    },
+
+    // Define a method called post that takes an apiUrl and data as parameters
+    post: async (apiUrl, data) => {
+        return await axios.post(apiUrl, data);
+    },
+
+    // Define a method called put that takes an apiUrl and data as parameters
+    put: async (apiUrl, data) => {
+        return await axios.post(apiUrl, data);
+    }
+}
+
+export default CommonApiService;
