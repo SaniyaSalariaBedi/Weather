@@ -12,7 +12,8 @@ const BASE_URL_LOGIN = 'https://login.meteomatics.com'
 export const loginInstance = axios.create({
     baseURL: `${BASE_URL_LOGIN}/api/v1/token`,
     headers: {
-        'Authorization': `Basic ${btoa(USERNAME + ':' + PASSWORD)}`
+        'Authorization': `Basic ${btoa(USERNAME + ':' + PASSWORD)}`,
+        "access-control-allow-origin": "*",
     }
 });
 
@@ -21,7 +22,10 @@ const BASE_URL_MAPS = 'https://nominatim.openstreetmap.org'
 
 // Creating an axios instance for the third-party map 
 export const mapsThirdPartyInstance = axios.create({
-    baseURL: BASE_URL_MAPS
+    baseURL: BASE_URL_MAPS,
+    headers: {
+        "access-control-allow-origin": "*",
+    }
 });
 
 // Retrieving the authentication token from local storage
@@ -31,7 +35,8 @@ const AUTH_TOKEN = localStorage.getItem('authToken');
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
     headers: {
-        'Authorization': `Bearer ${AUTH_TOKEN}`
+        'Authorization': `Bearer ${AUTH_TOKEN}`,
+        "access-control-allow-origin": "*",
     }
 });
 
