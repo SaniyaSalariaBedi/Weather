@@ -49,13 +49,13 @@ const WeatherApp = () => {
         }
     };
 
-    function handleSelectSuggestion(suggestion) {
+    const handleSelectSuggestion = (suggestion) => {
         // Update the location state with the selected suggestion's display name
         setLocation(suggestion.display_name);
 
         // Update the latitude and longitude state variables with the provided values
-        setLat(suggestion.lat)
-        setLong(suggestion.lon)
+        setLat(suggestion.lat);
+        setLong(suggestion.lon);
 
         // Clear the suggestions array to hide the search results
         setSuggestions([]);
@@ -67,6 +67,8 @@ const WeatherApp = () => {
             getLocation();
         }, 500);
     }, [location]);
+
+
     useEffect(() => {
         let dataset = []
 
@@ -122,20 +124,20 @@ const WeatherApp = () => {
     const getLocationName = async (latitude, longitude) => {
         try {
             // Call a third-party maps API to get the display name of the location from the given latitude and longitude
-            const { display_name } = await mapsThirdPartyInstance(`/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
-
+            const userLocationDetails = await mapsThirdPartyInstance(`/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
             // Update the location state variable with the obtained display name
-            setLocation(display_name);
+            setLocation(userLocationDetails.data.display_name);
 
             // Update the latitude and longitude state variables with the provided values
-            setLat(latitude)
-            setLong(longitude)
+            // setLat(latitude)
+            // setLong(longitude)
         } catch (error) {
             // If there's an error, display an alert with the error message
             alert(error)
         }
 
     }
+
     const getLocation = async () => {
         // Check if the location state variable is set
         if (location) {
@@ -170,10 +172,11 @@ const WeatherApp = () => {
     }
     useEffect(() => {
         // Call the function to get the weather report data whenever the latitude, longitude, temperature, wind speed, or precipitation state variables change
-        getWeatherReport()
+        getWeatherReport();
     }, [lat, long, temperature, windSpeed, precipitation]);
+
     const format = (number) => {
-        return number < 9 ? ('0' + number) : number
+        return number < 9 ? ('0' + number) : number;
     }
     const chartData = {
 
@@ -199,20 +202,15 @@ const WeatherApp = () => {
         },
     };
 
-
-
     return (
         <div className='container'>
             <form onSubmit={getWeatherReport} className="search-filters">
                 <div className="icon-input">
-                    {/* <label htmlFor="location">Location:</label> */}
                     <input placeholder="Location" className="icon-input__text-field" type="text" value={location} onChange={(e) => setLocation(e.target.value)} required />
-                    {/* <AiOutlineSearc h className="icon-input__icon material-icons" /> */}
                     {suggestions && suggestions.length > 0 ? (
                         <ul>
                             {suggestions.map(suggestion => (
                                 <li key={suggestion.place_id} onClick={() => handleSelectSuggestion(suggestion)}>
-                                    {/* <img src={suggestion.icon} alt="img" />  */}
                                     <span>{suggestion.display_name}</span>
                                 </li>
                             ))}

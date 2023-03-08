@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import WeatherApp from './components/Weather';
-import './App.css';
 import { loginInstance } from './services/api-instance';
+import './App.css';
+
 const App = () => {
 
   // Runs once on mount

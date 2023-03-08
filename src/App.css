@@ -55,10 +55,15 @@ form{
 .icon-input ul li{
   text-align: left;
   display: flex;
+  padding: 2px 5px;
 flex-direction: row;
 align-items: center;
   margin-bottom: 8px;
   cursor: pointer;
+}
+.icon-input ul li:hover{
+  background-color: #BBD8EC;
+  color: #000;
 }
 .icon-input ul li img{
   margin-right: 10px;
@@ -83,13 +88,7 @@ input::-webkit-calendar-picker-indicator {
 .icon-input__text-field:focus{
   outline: 0;
 }
-/* .icon-input__icon {
-  color: #BBBABC;
-  position: absolute;
-  top: 50%;
-  right:10px;
-  transform: translateY(-50%);
-} */
+
 .icon-input__text-field:focus + .icon-input__icon {
   color: #ff8400;
 }
@@ -114,6 +113,7 @@ button{
 .chart-filters >div{
   max-width: 800px !important;
   width: 100%;
+  min-height: 300px;
   color: #BBD8EC;
 }
 
